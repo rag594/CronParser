@@ -1,5 +1,9 @@
 ## CronParser
 
+### Requirements
+
+`Go 1.20.x and above`
+
 ### Package structure
 
 `models/` package contains the basic cron modelling \
