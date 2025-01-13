@@ -15,7 +15,7 @@ type ICronMonthParser interface {
     NumberParser(values []int) []int // parses just the number(* * 5 * *)
     StepParser(values []int) []int // parses the steps(* * */5 * *)
     RangeParser(values []int) []int // parses the range(* * 4-8 * *)
-    Parse() []int // parse constructs the pipeline using the above functions and additional business logic if any
+    Parse() []int // parse constructs the pipeline using the above functions and additional business logic if any.
 }
 ```
 
