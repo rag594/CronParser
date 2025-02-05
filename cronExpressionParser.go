@@ -11,6 +11,7 @@ type CronExpressionParser struct {
 	DayOfMonth ICronDayOfMonthParser
 	Month      ICronMonthParser
 	DayOfWeek  ICronDayOfWeekParser
+	Year       ICronYearParser
 }
 
 func (c *CronExpressionParser) Display(command string) {
@@ -19,6 +20,9 @@ func (c *CronExpressionParser) Display(command string) {
 	fmt.Printf("day of month   %v\n", c.DayOfMonth.Parse())
 	fmt.Printf("month          %v\n", c.Month.Parse())
 	fmt.Printf("day of week    %v\n", c.DayOfWeek.Parse())
+	if len(c.Year.Parse()) != 0 {
+		fmt.Printf("Year    %v\n", c.Year.Parse())
+	}
 	fmt.Printf("command        %v\n", command)
 }
 
@@ -62,5 +66,11 @@ func WithCronMonthParser(monthParser ICronMonthParser) CronExpressionParserOptio
 func WithCronDayOfWeekParser(dayOfWeekParser ICronDayOfWeekParser) CronExpressionParserOptions {
 	return func(parser *CronExpressionParser) {
 		parser.DayOfWeek = dayOfWeekParser
+	}
+}
+
+func WithCronYearParser(yearParser ICronYearParser) CronExpressionParserOptions {
+	return func(parser *CronExpressionParser) {
+		parser.Year = yearParser
 	}
 }

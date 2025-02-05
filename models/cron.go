@@ -24,6 +24,7 @@ type CronExpression struct {
 	DayOfMonth string
 	Month      string
 	DayOfWeek  string
+	Year       string
 }
 
 func NewCronExpression(minute string) *CronExpression {
