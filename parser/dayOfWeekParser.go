@@ -50,6 +50,10 @@ func (c *CronDayOfWeekParser) NumberParser(values []int) []int {
 	var dayOfWeeks []int
 	var number int
 
+	if strings.Contains(c.DayOfWeekExpression, models.Range.Value()) {
+		return dayOfWeeks
+	}
+
 	if strings.Contains(c.DayOfWeekExpression, models.Range.Value()) ||
 		strings.Contains(c.DayOfWeekExpression, models.WildCard.Value()) {
 		return values
